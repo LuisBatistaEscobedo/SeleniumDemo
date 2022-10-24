@@ -1,0 +1,5 @@
+com\project\fixtures\chromedriver.class
+com\project\fixtures\reporting.class
+com\project\fixtures\screenshot.class
+com\project\e2e\TestNGDemo.class
+com\project\fixtures\data.class
