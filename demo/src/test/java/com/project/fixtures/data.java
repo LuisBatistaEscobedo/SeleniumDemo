@@ -12,7 +12,7 @@ public class data {
     
     public static String getData(String data) throws IOException, ParseException{
         //Read Json file
-        Object obj = jsonParser.parse(new FileReader(".src/test/java/com/project/fixtures/testingData.json"));
+        Object obj = jsonParser.parse(new FileReader("src/test/java/com/project/fixtures/testingData.json")); // E:\Docs\SoftwareProjects\JavaSeleniumDemo\demo\src\test\java\com\project\fixtures\TestReport.html
         // Creates object
 		JSONObject jsonObject = (JSONObject)obj;
         // Looks for object inside Json file

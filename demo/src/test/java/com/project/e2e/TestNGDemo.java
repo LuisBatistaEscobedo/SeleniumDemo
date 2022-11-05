@@ -1,63 +1,83 @@
 package com.project.e2e;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-
 import com.project.fixtures.chromedriver;
+import com.project.fixtures.data;
 import com.project.fixtures.reporting;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 
 public class TestNGDemo {
 
-    @BeforeTest
-    public void preTestConfiguration () throws InterruptedException, IOException, ParseException
+    @BeforeAll
+    public static void buildUp() throws IOException, ParseException
     {
         reporting.reportConfiguration();
-        chromedriver.driverConfiguration();
     }
 
-    @AfterMethod
-    public void checkResults()
+    @BeforeEach
+    public void preTestConfiguration () throws InterruptedException, IOException, ParseException
     {
-        reporting.getResults();
+        chromedriver.driverConfiguration();
+        
     }
 
-    @AfterTest
-    public void tearDown() {
-		reporting.reportFlush();
+    @AfterAll
+    public static void tearDown() {
+        reporting.reportFlush();
 	}
 
+    @DisplayName("Google Test")
     @Test
-    public void sampleTestMethod() throws InterruptedException
+    public void sampleTestMethod() throws InterruptedException, IOException, ParseException
     {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
-        driver.get("https://www.google.com");
+        driver.get(data.getData("Url"));
 
-        Thread.sleep(5000);
+        reporting.initializeTest("Test name by classes");
+        reporting.messagePassLog("This is the first message Log");
+        reporting.messagePassLog("This is the second message Log");
+        reporting.messagePassLog("This is the fourth message Log");
+        reporting.messageFailLog("This is the fourth message and is failing");
+        reporting.takesScreenshot(driver, "TestingScreen");
+
+        
+        Thread.sleep(1000);
+       
 
         driver.quit();
 
     }
 
-    @Test
-    public void secondSampleTestMethod() throws InterruptedException
+    
+    @DisplayName("Automation Practice Test")
+    @Test 
+    public void secondSampleTestMethod() throws InterruptedException, IOException
     {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
-        driver.get("https://www.youtube.com/");
+        driver.get("http://automationpractice.com/");
 
-        Thread.sleep(5000);
+        Thread.sleep(1000);
+
+        reporting.initializeTest("Second test name by classes");
+        reporting.takesScreenshot(driver, "TestingfourScreen");
+        reporting.messageFailLog("This is the fourth message and is failing");
+        reporting.messagePassLog("This is the second message Log");
+        reporting.messagePassLog("This is the fourth message Log");
 
         driver.quit();
 
