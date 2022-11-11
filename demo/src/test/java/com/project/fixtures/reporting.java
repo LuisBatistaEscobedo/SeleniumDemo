@@ -69,7 +69,7 @@ public class reporting {
         test.log(Status.FAIL, message);
     }
 
-    public static void takesScreenshot(WebDriver driver, String name) throws IOException
+    public static void takesScreenshot(WebDriver driver, String name, String screenshotMessage) throws IOException
     {
         if(!directory.exists()){
 			directory.mkdir();
@@ -77,7 +77,7 @@ public class reporting {
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		String path = fileDirectory + "\\" + name + ".png";
         FileUtils.copyFile(scrFile, new File(path));
-        test.pass("Screenshot below: ", MediaEntityBuilder.createScreenCaptureFromPath(path).build());
+        test.pass(screenshotMessage, MediaEntityBuilder.createScreenCaptureFromPath(path).build());
     }
 
     
