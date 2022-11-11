@@ -39,33 +39,31 @@ Maven is a tool that can now be used for building and managing any Java-based pr
 
 # Folder Structure
 
-demo
-├──src
-│   ├──main
-│   │   └──java
-│   │       └──com
-│   │           └──project
-│   └──test
-│       ├──java
-│       │   └──com
-│       │       └──project
-│       │           ├──fixtures
-│       │           │   └──ExtentReport
-│       │           │       └──Screenshots
-│       │           ├──integration
-│       │           │   └──e2e
-│       │           └──pagesAndActions
-│       │               └──common
-│       │                   ├──actions
-│       │                   └──pages
-│       └──resources
-└──target
-.editorconfig
-.gitignore
-pom.xml
-README.md
-
-
+    demo
+    ├── src
+    │   ├── main
+    │   │   └── java
+    │   │       └── com
+    │   │           └── project
+    │   └── test
+    │       ├── java
+    │       │   └── com
+    │       │       └── project
+    │       │           ├── fixtures
+    │       │           │   └── ExtentReport
+    │       │           │       └── Screenshots
+    │       │           ├── integration
+    │       │           │   └── e2e
+    │       │           └── pagesAndActions
+    │       │               └── common
+    │       │                   ├── actions
+    │       │                   └── pages
+    │       └── resources
+    └── target
+    .editorconfig
+    .gitignore
+    pom.xml
+    README.md
 
 # Folder Structure Usage
 
