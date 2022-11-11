@@ -1,5 +1,10 @@
 {
-    "Url": "https://www.google.com",
+    "LandingPage": "https://ultimateqa.com/fake-landing-page",
+    "PlaygroundSite": "http://uitestingplayground.com/",
+    "LoginSite": "https://www.saucedemo.com/",
+    "AppintmentSite":"https://katalon-demo-cura.herokuapp.com/",
+    "SignUpSite":"http://a.testaddressbook.com/",
+    "StoreDemoSite":"http://automationpractice.com/",
     "Name": "Jose",
     "LastName": "Batista",
     "Zipcode": "30319",

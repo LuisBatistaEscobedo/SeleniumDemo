@@ -1,6 +1,6 @@
 package com.project.fixtures;
 
-public class chromedriver {
+public class chromedriver{
     
     public static void driverConfiguration()
     {
