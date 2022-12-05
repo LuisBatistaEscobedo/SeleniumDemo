@@ -14,7 +14,7 @@ The dependencies listed on this project are added on on the **POM.xml** file. Ea
 
 - extentreports@3.1.2
 
-- webdrivermanager@5.3.0
+- json-simple@1.1.1
 
 
 # Test Execution
@@ -74,6 +74,6 @@ All the test should be saved on the **integration** folder. The ***PagesAndActio
 
 |Date                           |Change                                                        |
 |-------------------------------|--------------------------------------------------------------|
-|22/10/2020                     |New selenium demo project. Create Basic navigation on Chromedriver.
-|24/10/2020                     |Added reporting, screenshots and file loading fixtures.              |
-|04/11/2020                     |Setting up the environment for automation using Selenium and ExtentReport.                  |
+|22/10/2022                     |New selenium demo project. Create Basic navigation on Chromedriver.
+|24/10/2022                     |Added reporting, screenshots and file loading fixtures.              |
+|04/11/2022                     |Setting up the environment for automation using Selenium and ExtentReport.                  |
