@@ -6,7 +6,7 @@ This Java project is made as a free distribution that works as the basis for a S
 
 The dependencies listed on this project are added on on the **POM.xml** file. Each one of this dependencies are needed for the correct usage of this repository.
 
-- selenium-java@4.5.2
+- selenium-java@3.141.59
 
 - webdrivermanager@5.3.0
 
@@ -14,7 +14,11 @@ The dependencies listed on this project are added on on the **POM.xml** file. Ea
 
 - extentreports@3.1.2
 
-- webdrivermanager@5.3.0
+- unirest-java@1.4.9
+
+- jtwig-core@5.87.0
+
+- java-client@7.6.0
 
 
 # Test Execution
@@ -54,6 +58,7 @@ Maven is a tool that can now be used for building and managing any Java-based pr
     │       │           │       └── Screenshots
     │       │           ├── integration
     │       │           │   └── e2e
+    │       │           │   └── mobileTesting
     │       │           └── pagesAndActions
     │       │               └── common
     │       │                   ├── actions
@@ -74,6 +79,7 @@ All the test should be saved on the **integration** folder. The ***PagesAndActio
 
 |Date                           |Change                                                        |
 |-------------------------------|--------------------------------------------------------------|
-|22/10/2020                     |New selenium demo project. Create Basic navigation on Chromedriver.
-|24/10/2020                     |Added reporting, screenshots and file loading fixtures.              |
-|04/11/2020                     |Setting up the environment for automation using Selenium and ExtentReport.                  |
+|22/10/2022                     |New selenium demo project. Create Basic navigation on Chromedriver.
+|24/10/2022                     |Added reporting, screenshots and file loading fixtures.              |
+|04/11/2022                     |Setting up the environment for automation using Selenium and ExtentReport.                  |
+|05/12/2022                     |New branch implemented for Automation Testing with Appium and Android real device.                  |
