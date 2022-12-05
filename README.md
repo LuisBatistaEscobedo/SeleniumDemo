@@ -20,6 +20,8 @@ The dependencies listed on this project are added on on the **POM.xml** file. Ea
 
 - java-client@7.6.0
 
+- json-simple@1.1.1 
+
 
 # Test Execution
 For any **Java** + **Selenium** project, we need to have the following elements installed on the environment we are excuting our tests:
