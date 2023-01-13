@@ -2,14 +2,13 @@ package com.project.integration.mobileTesting;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import com.project.fixtures.WebDriverSingleton;
 import com.project.fixtures.reporting;
-import io.appium.java_client.AppiumDriver;
+import com.project.pagesAndActions.common.pages.mobile.mobilePage;
+
 import io.appium.java_client.MobileBy;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.AfterAll;
@@ -24,9 +23,10 @@ class BaseTest
     public WebDriver driver;
 
     @BeforeEach
-    public void setup()
+    public void setup() throws MalformedURLException
     {
         driver = WebDriverSingleton.getInstance();
+        WebDriverSingleton.setCapabilities();
     }
 
     @AfterEach
@@ -50,51 +50,23 @@ class BaseTest
 
 public class MobileAndroidDemo extends BaseTest  {
 
-    static AppiumDriver<WebElement> driver;
-
-
     @DisplayName("Case 01 - Make a search and select second element from list")
     @Test
-    public void searchTest() throws MalformedURLException, InterruptedException
+    public void searchTest() throws MalformedURLException
     {
-        DesiredCapabilities cap = new DesiredCapabilities();
-
-        cap.setCapability("deviceName", "Redmi Note");
-        cap.setCapability("automationName", "UiAutomator2");
-        cap.setCapability("udid", "S4CAEEWGV8WG4HMF");
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("platformVersion", "11");
-        cap.setCapability("appPackage", "org.wikipedia");
-        cap.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = new AppiumDriver<WebElement>(url,cap);
-
+        
+        reporting.initializeTest("Mobile - Testing");
         System.out.println("Test started...");
 
-        driver.findElement(By.id("org.wikipedia:id/fragment_onboarding_skip_button")).click();
-        Thread.sleep(3000);
 
-        // Search input validation
-        driver.findElement(By.id("org.wikipedia:id/search_container")).getText().equals("Search Wikipedia");
-        driver.findElement(By.id("org.wikipedia:id/search_container")).click();
+        //driver.findElement(By.id("org.wikipedia:id/fragment_onboarding_skip_button")).click();
+        mobilePage.accessApp();
 
         // Make a search
-        driver.findElement(By.id("org.wikipedia:id/search_src_text")).sendKeys("cat");
-        Thread.sleep(2000);
+        mobilePage.searchInWiki("cat");
 
-        // Check results are greather than 0
-        List<WebElement> list = driver.findElements(By.id("org.wikipedia:id/search_results_list"));
+        // Validate result list and select second Result
 
-        if(list != null){
-            System.out.println("The list contains data.");
-        } else {
-            System.out.println("Error on results");
-        }
-
-        // Select second element from Result List
-        driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[@index='1']")).click();
-        Thread.sleep(6000);
 
     }
 
@@ -103,19 +75,6 @@ public class MobileAndroidDemo extends BaseTest  {
     @Test
     public void searchAndVerifyDataTest() throws MalformedURLException, InterruptedException
     {
-        DesiredCapabilities cap = new DesiredCapabilities();
-
-        cap.setCapability("deviceName", "Redmi Note");
-        cap.setCapability("automationName", "UiAutomator2");
-        cap.setCapability("udid", "S4CAEEWGV8WG4HMF");
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("platformVersion", "11");
-        cap.setCapability("appPackage", "org.wikipedia");
-        cap.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = new AppiumDriver<WebElement>(url,cap);
-
         System.out.println("Test started...");
 
         driver.findElement(By.id("org.wikipedia:id/fragment_onboarding_skip_button")).click();
@@ -182,18 +141,6 @@ public class MobileAndroidDemo extends BaseTest  {
     @Test
     public void searchLanguagesTest() throws MalformedURLException, InterruptedException
     {
-        DesiredCapabilities cap = new DesiredCapabilities();
-
-        cap.setCapability("deviceName", "Redmi Note");
-        cap.setCapability("automationName", "UiAutomator2");
-        cap.setCapability("udid", "S4CAEEWGV8WG4HMF");
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("platformVersion", "11");
-        cap.setCapability("appPackage", "org.wikipedia");
-        cap.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = new AppiumDriver<WebElement>(url,cap);
 
         System.out.println("Test started...");
 
@@ -241,18 +188,6 @@ public class MobileAndroidDemo extends BaseTest  {
     @Test
     public void settingsAboutTest() throws MalformedURLException, InterruptedException
     {
-        DesiredCapabilities cap = new DesiredCapabilities();
-
-        cap.setCapability("deviceName", "Redmi Note");
-        cap.setCapability("automationName", "UiAutomator2");
-        cap.setCapability("udid", "S4CAEEWGV8WG4HMF");
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("platformVersion", "11");
-        cap.setCapability("appPackage", "org.wikipedia");
-        cap.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = new AppiumDriver<WebElement>(url,cap);
 
         System.out.println("Test started...");
 
@@ -279,18 +214,6 @@ public class MobileAndroidDemo extends BaseTest  {
     @Test
     public void savedArticlesTest() throws MalformedURLException, InterruptedException
     {
-        DesiredCapabilities cap = new DesiredCapabilities();
-
-        cap.setCapability("deviceName", "Redmi Note");
-        cap.setCapability("automationName", "UiAutomator2");
-        cap.setCapability("udid", "S4CAEEWGV8WG4HMF");
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("platformVersion", "11");
-        cap.setCapability("appPackage", "org.wikipedia");
-        cap.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = new AppiumDriver<WebElement>(url,cap);
 
         System.out.println("Test started...");
 
@@ -307,18 +230,6 @@ public class MobileAndroidDemo extends BaseTest  {
     @Test
     public void searchInsideArticleTest() throws MalformedURLException, InterruptedException
     {
-        DesiredCapabilities cap = new DesiredCapabilities();
-
-        cap.setCapability("deviceName", "Redmi Note");
-        cap.setCapability("automationName", "UiAutomator2");
-        cap.setCapability("udid", "S4CAEEWGV8WG4HMF");
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("platformVersion", "11");
-        cap.setCapability("appPackage", "org.wikipedia");
-        cap.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = new AppiumDriver<WebElement>(url,cap);
 
         System.out.println("Test started...");
 

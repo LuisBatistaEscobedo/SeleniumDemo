@@ -46,6 +46,11 @@
         <artifactId>selenium-java</artifactId>
         <version>3.141.59</version>
     </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>31.0.1-jre</version>
+    </dependency>
     <!-- Json.simple file reader -->
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>

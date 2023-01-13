@@ -1,11 +1,15 @@
-package com.project.pagesAndActions.common.pages;
+package com.project.pagesAndActions.common.pages.web;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import com.project.fixtures.WebDriverSingleton;
 
 public class commonPage{
 
     public static WebDriver driver = WebDriverSingleton.getInstance();
+    //public static WebDriverWait wait;
 
     /********************************************************/
     /******************** Locators **************************/
@@ -43,5 +47,19 @@ public class commonPage{
         driver.findElement(By.xpath(nameItem+"[text()='"+ name +"']")).click();
     }
 
-    /****************** End Interactions ********************/
+    public static void waitUntilClickableXpath(String locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+    }
+
+    public static void waitUntilClickableId(String locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id(locator)));
+    }
+
+    public static void waitTime(Integer timeout){
+        driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
+    }
+
+
 }

@@ -39,9 +39,15 @@ For Visual Studio Code, we need to look for the Java Extension Pack on the Exten
 
 Finally we will be using [JUnit](https://junit.org/junit5/) as a testing framework and listed on the Dependencies from [junit-jupiter-api](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api); using the **Annotations** listed on the [documentation](https://junit.org/junit5/docs/current/user-guide/) such as *@Test*, *@DisplayName*, *@BeforeEach*, *@AfterEach*, etc.
 
-## On Maven
+# On Maven
+
+## For e2e testing
 
 Maven is a tool that can now be used for building and managing any Java-based project, this let us easily execute our Selenium tests with the simple command `mvn test -Dtest=”TestClassName”`. For further details on execution for maven, please reference the proper [documentation](https://maven.apache.org/surefire/maven-surefire-plugin/examples/single-test.html).
+
+## For Mobile testing
+
+
 
 # Folder Structure
 

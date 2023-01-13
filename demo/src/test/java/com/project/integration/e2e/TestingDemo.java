@@ -3,8 +3,8 @@ import org.openqa.selenium.WebDriver;
 import com.project.fixtures.WebDriverSingleton;
 import com.project.fixtures.data;
 import com.project.fixtures.reporting;
-import com.project.pagesAndActions.common.actions.commonActions;
-import com.project.pagesAndActions.common.pages.commonPage;
+import com.project.pagesAndActions.common.pages.web.commonPage;
+
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.AfterAll;
@@ -124,7 +124,6 @@ public class TestingDemo extends BaseTest {
         reporting.takesScreenshot(driver, "HomePage","Home page screenshoot from Store.");
 
         // Scroll to Bottom page
-        commonActions.scrollToBottom();
         Thread.sleep(2000);
         reporting.messagePassLog("Scroll to bottom.");
         reporting.takesScreenshot(driver, "BottomPage","Bottom page from store");
