@@ -18,7 +18,7 @@ The dependencies listed on this project are added on on the **POM.xml** file. Ea
 
 
 # Test Execution
-For any **Java** + **Selenium** project, we need to have the following elements installed on the environment we are excuting our tests:
+For any **Java** + **Selenium** project, we need to have the following tools need to be installed on the environment we are excuting our tests:
 
  - [Java JDK](https://www.oracle.com/java/technologies/downloads/).
  - [JAVA_HOME](https://www.java.com/en/download/help/path.html) environment variable on System Variables(Using the JDK path previously installed).
